@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Yo" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/myPrimary</item>
+        <item name="colorPrimaryVariant">@color/myPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/mySecondary</item>
+        <item name="colorSecondaryVariant">@color/mySecondary</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="statusBarBackground">?attr/colorPrimaryVariant</item>
+        <item name="android:windowBackground">@color/off_white</item>
+    </style>
+</resources>

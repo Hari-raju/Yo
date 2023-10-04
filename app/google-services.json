@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "862131751968",
+    "project_id": "yo-back-end",
+    "storage_bucket": "yo-back-end.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862131751968:android:b3e2a8e926cb5354150045",
+        "android_client_info": {
+          "package_name": "com.raju.yo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_taQeivjlkZ9t3eM7ErMFHc-Imk17MKY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

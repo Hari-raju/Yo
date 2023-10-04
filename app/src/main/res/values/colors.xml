@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="myPrimary">#330cf6</color>
+    <color name="mySecondary">#1C2E46</color>
+    <color name="grey">#C3C3C3</color>
+    <color name="input_back">#ECECEC</color>
+    <color name="icon_back">#20FFFFFF</color>
+    <color name="secondary_text">#757575</color>
+    <color name="off_white">#FDFDFD</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

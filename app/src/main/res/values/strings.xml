@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Yo</string>
+    <string name="yo_messenger">Yo Chats</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="_00_123456789">(+00) 123456789</string>
+    <string name="welcome">Welcome</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="mobile">Enter your Mobile</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="verify">Verify</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_1">1</string>
+    <string name="otp_verification">Otp Verification</string>
+    <string name="please_enter_the_otp_sent_your_number_n_xx_xxxxxxxxx">Please enter the otp sent your number\n +xx xxxxxxxxx</string>
+    <string name="get_otp">Get Otp</string>
+    <string name="xxxxxx">XXXXXX</string>
+    <string name="resend_otp_in_30sec">Resend Otp in 30sec</string>
+    <string name="enter_your_details">Enter your Details</string>
+    <string name="user_name">User Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="create">Create</string>
+    <string name="developed_by_raju">Developed by Raju</string>
+    <string name="home">Home</string>
+    <string name="change_phone">Change Phone</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="profile">Profile</string>
+    <string name="edit_details">Edit Details</string>
+    <string name="log_out">Log out</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

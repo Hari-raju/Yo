@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:title="@string/home"
+            android:icon="@drawable/ic_home"
+            android:iconTint="@color/black"
+            android:id="@+id/nav_home"/>
+        <item
+            android:iconTint="@color/black"
+            android:title="@string/edit_details"
+            android:icon="@drawable/ic_edit"
+            android:id="@+id/nav_edit"/>
+        <item
+            android:iconTint="@color/black"
+            android:icon="@drawable/ic_phone_menu"
+            android:id="@+id/nav_change_phone"
+            android:title="@string/change_phone"/>
+        <item
+            android:iconTint="@color/black"
+            android:icon="@drawable/ic_password"
+            android:title="@string/forgot_password"
+            android:id="@+id/nav_forgot_password"/>
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:title="@string/profile">
+
+            <menu>
+                <item
+                    android:iconTint="@color/black"
+                    android:id="@+id/nav_profile"
+                    android:icon="@drawable/ic_user"
+                    android:title="@string/profile"
+                    />
+
+                <item
+                    android:iconTint="@color/black"
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_logout"
+                    android:title="@string/log_out"
+                    />
+
+            </menu>
+
+        </item>
+    </group>
+</menu>

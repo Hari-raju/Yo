@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+
+    tools:context=".activities.CreateUserActivity">
+    <ImageButton
+        android:id="@+id/backCreateUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:padding="@dimen/_20sdp"
+        android:background="@color/white"/>
+    <LinearLayout
+        android:layout_margin="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/circular_bg"
+                android:backgroundTint="@color/secondary_text">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/_1"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18ssp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/circular_bg"
+                android:backgroundTint="@color/secondary_text">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/_2"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18ssp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/circular_bg"
+                android:backgroundTint="@color/myPrimary">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/_3"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18ssp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_your_details"
+            android:textSize="@dimen/_18ssp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:textColor="@color/myPrimary"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/userProfile"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:background="@drawable/background_image"
+                android:scaleType="centerCrop"
+                app:riv_oval="true"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:id="@+id/cam_icon_signUP"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:background="@drawable/ic_userdp"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_height="wrap_content"
+            android:id="@+id/username_create_user"
+            app:hintTextColor="@color/black"
+            android:hint="@string/user_name"
+            app:boxStrokeWidthFocused="@dimen/_2sdp"
+            app:boxStrokeColor="@color/black"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/black"
+            app:startIconDrawable="@drawable/ic_user"
+            app:startIconTint="@color/black"
+            android:elevation="@dimen/_10sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:background="@drawable/background_field"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_height="wrap_content"
+            android:id="@+id/userpassword_create_user"
+            app:hintTextColor="@color/black"
+            android:hint="@string/password"
+            app:boxStrokeWidthFocused="@dimen/_2sdp"
+            app:boxStrokeColor="@color/black"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/black"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/black"
+            android:elevation="@dimen/_10sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword"
+                android:textColor="@color/black"
+                android:background="@drawable/background_field"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_height="wrap_content"
+            android:id="@+id/userConfirmpassword_create_user"
+            app:hintTextColor="@color/black"
+            android:hint="@string/confirm_password"
+            app:boxStrokeWidthFocused="@dimen/_2sdp"
+            app:boxStrokeColor="@color/black"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/black"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/black"
+            android:elevation="@dimen/_10sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword"
+                android:textColor="@color/black"
+                android:background="@drawable/background_field"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:text="@string/create"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:cornerRadius="@dimen/_8sdp"
+                android:textStyle="bold"
+                android:textSize="@dimen/_13ssp"
+                android:id="@+id/buttonCreateUser"/>
+
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/progressCreateUser"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>
