@@ -6,7 +6,9 @@
     <color name="input_back">#ECECEC</color>
     <color name="icon_back">#20FFFFFF</color>
     <color name="secondary_text">#757575</color>
-    <color name="off_white">#FDFDFD</color>
+    <color name="off_white">#FAFAFA</color>
     <color name="black">#FF000000</color>
+    <color name="error">#B00020</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="light_blue">#191970</color>
 </resources>

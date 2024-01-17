@@ -14,12 +14,14 @@ public class SignUpActivity extends AppCompatActivity {
 
     private ActivitySignUpBinding signUpBinding;
     private Connection connection;
+    private String whatToDo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         signUpBinding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(signUpBinding.getRoot());
         connection=new Connection();
+        whatToDo=getIntent().getStringExtra("whatToDo");
         if(connection.isConnected(getApplicationContext())){
             signUpBinding.buttonSignUp.setVisibility(View.VISIBLE);
             signUpBinding.progressSignup.setVisibility(View.GONE);
@@ -43,7 +45,10 @@ public class SignUpActivity extends AppCompatActivity {
             try {
                 Intent intent = new Intent(SignUpActivity.this, OtpActivity.class);
                 intent.putExtra("phone",signUpBinding.countryCodePickerSignUp.getFullNumberWithPlus());
+                intent.putExtra("whatToDo",whatToDo);
                 startActivity(intent);
+                if(whatToDo.equals("reset"))
+                    finish();
             } catch (Exception e) {
                 AndroidUtils.showToast(getApplicationContext(), e.getMessage());
             }

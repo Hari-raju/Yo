@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/off_white"
     android:orientation="vertical"
     tools:context=".activities.SignUpActivity">
 
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_back"
         android:padding="@dimen/_20sdp"
-        android:background="@color/white"/>
+        android:background="@android:color/transparent"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,64 +24,6 @@
         android:gravity="center"
         android:weightSum="100">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="20"
-            android:gravity="center">
-
-            <RelativeLayout
-                android:layout_width="@dimen/_32sdp"
-                android:layout_height="@dimen/_32sdp"
-                android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/circular_bg"
-                android:backgroundTint="@color/myPrimary">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/_1"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_18ssp" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="@dimen/_32sdp"
-                android:layout_height="@dimen/_32sdp"
-                android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/circular_bg"
-                android:backgroundTint="@color/secondary_text">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/_2"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_18ssp" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="@dimen/_32sdp"
-                android:layout_height="@dimen/_32sdp"
-                android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/circular_bg"
-                android:backgroundTint="@color/secondary_text">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/_3"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_18ssp" />
-
-            </RelativeLayout>
-
-        </LinearLayout>
 
         <ImageView
             android:layout_width="@dimen/_160sdp"
@@ -126,15 +68,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_15sdp"
-                android:text="@string/get_otp"
+                android:text="@string/next"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_13ssp"
                 android:textStyle="bold"
                 app:cornerRadius="@dimen/_8sdp" />
 
             <ProgressBar
+                android:background="@drawable/progress_bg"
                 android:id="@+id/progressSignup"
-                android:layout_width="@dimen/_25sdp"
+
+                android:backgroundTint="@android:color/transparent"               android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_15sdp"

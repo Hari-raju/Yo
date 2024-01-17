@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/container_sheet"
+    android:layout_margin="@dimen/_5sdp"
+    android:background="@drawable/dialog_bg"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:text="@string/edit_your_name"
+        android:id="@+id/name_header"
+        android:textStyle="bold" />
+
+
+    <EditText
+        android:id="@+id/newName"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/name_header"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:hint="@string/user_name"
+        app:backgroundTint="@color/myPrimary" />
+
+    <TextView
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/_160sdp"
+        android:layout_marginTop="@dimen/_100sdp"
+        android:backgroundTint="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/cancel"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_100sdp"
+        android:layout_toEndOf="@+id/cancel"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/save"
+        android:textColor="@color/myPrimary"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

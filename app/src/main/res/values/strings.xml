@@ -8,9 +8,9 @@
     <string name="welcome_back">Welcome Back</string>
     <string name="mobile">Enter your Mobile</string>
     <string name="password">Password</string>
-    <string name="sign_in">Sign In</string>
+    <string name="sign_in">SIGN IN</string>
     <string name="create_new_account">Create New Account</string>
-    <string name="verify">Verify</string>
+    <string name="verify">VERIFY</string>
     <string name="_2">2</string>
     <string name="_3">3</string>
     <string name="_1">1</string>
@@ -18,11 +18,11 @@
     <string name="please_enter_the_otp_sent_your_number_n_xx_xxxxxxxxx">Please enter the otp sent your number\n +xx xxxxxxxxx</string>
     <string name="get_otp">Get Otp</string>
     <string name="xxxxxx">XXXXXX</string>
-    <string name="resend_otp_in_30sec">Resend Otp in 30sec</string>
+    <string name="resend_otp_in_30sec">Resend Otp in 60sec</string>
     <string name="enter_your_details">Enter your Details</string>
     <string name="user_name">User Name</string>
     <string name="confirm_password">Confirm Password</string>
-    <string name="create">Create</string>
+    <string name="create">CREATE</string>
     <string name="developed_by_raju">Developed by Raju</string>
     <string name="home">Home</string>
     <string name="change_phone">Change Phone</string>
@@ -32,4 +32,25 @@
     <string name="log_out">Log out</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="yo_chats">Yo Chats</string>
+    <string name="chat">Chat</string>
+    <string name="calls">Calls</string>
+    <string name="groups">Groups</string>
+    <string name="new_chat">New Chat</string>
+    <string name="feature">Feature Coming Soon</string>
+    <string name="name">Name</string>
+    <string name="edit_your_name">Enter your Name</string>
+    <string name="update">Update</string>
+    <string name="phone">Phone</string>
+    <string name="please_enter_the_otp_which_was_sent_your_previous_number">Please enter the otp which was sent your previous number</string>
+    <string name="enter_new_number">Enter new number</string>
+    <string name="next">NEXT</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_your_message">Enter your Message</string>
+    <string name="online">Online</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

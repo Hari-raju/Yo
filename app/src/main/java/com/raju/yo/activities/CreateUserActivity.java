@@ -2,7 +2,6 @@ package com.raju.yo.activities;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,9 +14,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
+import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.raju.yo.R;
 import com.raju.yo.connectivity.Connection;
@@ -29,6 +26,9 @@ import com.raju.yo.utils.AndroidUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.HashMap;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 public class CreateUserActivity extends AppCompatActivity {
 
@@ -63,9 +63,13 @@ public class CreateUserActivity extends AppCompatActivity {
     private void Listeners(){
         createUser.backCreateUser.setOnClickListener(v->onBackPressed());
         createUser.userProfile.setOnClickListener(v->{
-            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            pickImage.launch(intent);
+            ImagePicker.with(this).cropSquare().compress(512).maxResultSize(512,512).createIntent(new Function1<Intent, Unit>() {
+                @Override
+                public Unit invoke(Intent intent) {
+                    pickImage.launch(intent);
+                    return null;
+                }
+            });
         });
         createUser.buttonCreateUser.setOnClickListener(v->{
             createUser.buttonCreateUser.setVisibility(View.GONE);
@@ -110,6 +114,7 @@ public class CreateUserActivity extends AppCompatActivity {
                 .addOnSuccessListener(documentReference -> {
                     //Storingser name,image,is signed in = true in preference manager class
                     preferenceManager.putBoolean(Constants.KEY_IS_SIGNED_IN,true);
+                    preferenceManager.putString(Constants.KEY_PHONE,phone);
                     preferenceManager.putString(Constants.KEY_USER_ID,documentReference.getId());
                     preferenceManager.putString(Constants.KEY_USER_NAME,createUser.usernameCreateUser.getEditText().getText().toString());
                     preferenceManager.putString(Constants.KEY_IMAGE,encodeImage);
@@ -200,13 +205,13 @@ public class CreateUserActivity extends AppCompatActivity {
     //Encoding the image
     private String encodedImage(Bitmap bitmap) {
         //Setting width
-        int previewWidth = 150;
+        int previewWidth = 512;
         int previewHeight = bitmap.getHeight() * previewWidth / bitmap.getWidth();
         //Creating a image with customized height and width
-        Bitmap previewBitmap = Bitmap.createScaledBitmap(bitmap, previewWidth, previewHeight, false);
+        Bitmap previewBitmap = Bitmap.createScaledBitmap(bitmap, previewWidth, previewHeight, true);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         //Compressing our image into jpeg format then putting it inside ByteArrayOutputStream
-        previewBitmap.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
+        previewBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
         //then we converting it into byteArray
         byte[] bytes = byteArrayOutputStream.toByteArray();
         //Encrypting it

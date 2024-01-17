@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/ic_chat"
+        android:id="@+id/chat"
+        android:title="@string/chat"/>
+
+    <item
+        android:icon="@drawable/ic_calls"
+        android:id="@+id/call"
+        android:title="@string/calls"/>
+
+    <item
+        android:icon="@drawable/ic_group"
+        android:id="@+id/group"
+        android:title="@string/groups"/>
+
+
+
+</menu>

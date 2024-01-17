@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
 
@@ -16,7 +17,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.raju.yo.connectivity.Connection;
+import com.raju.yo.connectivity.Constants;
+import com.raju.yo.connectivity.PreferenceManager;
 import com.raju.yo.utils.AndroidUtils;
 import com.raju.yo.databinding.ActivityOtpBinding;
 
@@ -26,10 +31,11 @@ public class OtpActivity extends AppCompatActivity {
 
     private String phone, codeSent;
     private ActivityOtpBinding otpActivity;
-    private final FirebaseAuth auth = FirebaseAuth.getInstance();
+    private  FirebaseAuth auth;
     private PhoneAuthProvider.ForceResendingToken resendToken;
     private Long timeoutSeconds = 60L;
     private Connection connection;
+    private String whatToDo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +43,15 @@ public class OtpActivity extends AppCompatActivity {
         phone = getIntent().getStringExtra("phone");
         otpActivity = ActivityOtpBinding.inflate(getLayoutInflater());
         setContentView(otpActivity.getRoot());
+        whatToDo=getIntent().getStringExtra("whatToDo");
         connection=new Connection();
+        auth = FirebaseAuth.getInstance();
+        otpActivity.buttonOtp.setVisibility(View.GONE);
+        otpActivity.progressOtp.setVisibility(View.VISIBLE);
         if(connection.isConnected(getApplicationContext())){
-            otpActivity.buttonOtp.setVisibility(View.VISIBLE);
-            otpActivity.progressOtp.setVisibility(View.GONE);
             Listeners();
         }
         else{
-            otpActivity.buttonOtp.setVisibility(View.GONE);
-            otpActivity.progressOtp.setVisibility(View.VISIBLE);
             AndroidUtils.showToast(getApplicationContext(),"Turn on Internet");
         }
     }
@@ -56,6 +62,10 @@ public class OtpActivity extends AppCompatActivity {
         //When it enters activity otp will generate otp automatically
         generateOtp(phone,false);
         //Setting up resend listener to resend otp
+        otpActivity.backOtp.setOnClickListener(v->{
+            finish();
+        });
+
         otpActivity.resendOtp.setOnClickListener(v -> {
             generateOtp(phone,true);
         });
@@ -74,8 +84,8 @@ public class OtpActivity extends AppCompatActivity {
 
     //Sending Otp
     private void generateOtp(String phone,boolean resend) {
+        //Generating otp by setting number,time out,from which activity it calls,call back => which contains functions like complete,faile...etc
         startResendTimer();
-        //Generating otp by setting number,time out,from which activoty it calls,call back => which contains functions like complete,faile...etc
         PhoneAuthOptions.Builder options =
                 PhoneAuthOptions.newBuilder(auth)
                         .setPhoneNumber(phone)
@@ -83,16 +93,23 @@ public class OtpActivity extends AppCompatActivity {
                         .setActivity(this)
                         .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                             @Override
+                            public void onCodeAutoRetrievalTimeOut(@NonNull String s) {
+                                super.onCodeAutoRetrievalTimeOut(s);
+                            }
+
+                            @Override
                             public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                                 super.onCodeSent(s, forceResendingToken);
                                 AndroidUtils.showToast(getApplicationContext(), "Otp Sent Successfully");
                                 codeSent = s;
                                 resendToken = forceResendingToken;
+                                otpActivity.buttonOtp.setVisibility(View.VISIBLE);
+                                otpActivity.progressOtp.setVisibility(View.GONE);
                             }
 
                             @Override
                             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                                AndroidUtils.showToast(getApplicationContext(), "Otp Sent Successfully");
+                                AndroidUtils.showToast(getApplicationContext(), "Verified");
                             }
 
                             @Override
@@ -119,11 +136,29 @@ public class OtpActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     AndroidUtils.showToast(getApplicationContext(), "Verified successfully");
-                    Intent intent = new Intent(OtpActivity.this, CreateUserActivity.class);
-                    intent.putExtra("phone",phone);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
+
+                    if(whatToDo.equals("reset")){
+                        FirebaseFirestore database = FirebaseFirestore.getInstance();
+                        PreferenceManager preferenceManager = new PreferenceManager(getApplicationContext());
+                        DocumentReference documentReference = database.collection(Constants.KEY_COLLECTION_USERS)
+                                .document(preferenceManager.getString(Constants.KEY_USER_ID));
+                        documentReference.update(Constants.KEY_PHONE,phone)
+                                .addOnSuccessListener(success->{
+                                    AndroidUtils.showToast(getApplicationContext(),"Updated Successfully");
+                                    preferenceManager.putString(Constants.KEY_PHONE,phone);
+                                })
+                                .addOnFailureListener(fail->{
+                                    AndroidUtils.showToast(getApplicationContext(),"Failed to update");
+                                });
+                        finish();
+                    }
+                    else{
+                        Intent intent=new Intent(OtpActivity.this, CreateUserActivity.class);
+                        intent.putExtra("phone",phone);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish();
+                    }
                 } else {
                     otpActivity.otp.setError("Incorrect Otp");
                 }
@@ -132,15 +167,16 @@ public class OtpActivity extends AppCompatActivity {
     }
 
     private void startResendTimer() {
-        otpActivity.resendOtp.setText("Resend otp in 60 seconds");
         otpActivity.resendOtp.setEnabled(false);
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                otpActivity.resendOtp.setText("Resend");
-                otpActivity.resendOtp.setEnabled(true);
+        new CountDownTimer(60000,1000){
+            public void onTick(long millisUntilFinished){
+                long sec = (millisUntilFinished / 1000) % 60;
+                otpActivity.resendOtp.setText("Resend otp in "+sec+" seconds");
             }
-        }, 60000);
+            public void onFinish(){
+                otpActivity.resendOtp.setEnabled(true);
+                otpActivity.resendOtp.setText("Resend");
+            }
+        }.start();
     }
 }

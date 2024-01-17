@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/off_white"
     tools:context=".activities.OtpActivity"
     android:orientation="vertical">
     <ImageButton
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_back"
         android:padding="@dimen/_20sdp"
-        android:background="@color/white"/>
+        android:background="@android:color/transparent"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,64 +23,6 @@
         android:gravity="center"
         android:layout_margin="@dimen/_20sdp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="20"
-            android:gravity="center">
-
-            <RelativeLayout
-                android:layout_width="@dimen/_32sdp"
-                android:layout_height="@dimen/_32sdp"
-                android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/circular_bg"
-                android:backgroundTint="@color/secondary_text">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/_1"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_18ssp" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="@dimen/_32sdp"
-                android:layout_height="@dimen/_32sdp"
-                android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/circular_bg"
-                android:backgroundTint="@color/myPrimary">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/_2"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_18ssp" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="@dimen/_32sdp"
-                android:layout_height="@dimen/_32sdp"
-                android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/circular_bg"
-                android:backgroundTint="@color/secondary_text">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/_3"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_18ssp" />
-
-            </RelativeLayout>
-
-        </LinearLayout>
 
         <ImageView
             android:layout_weight="20"
@@ -147,6 +89,8 @@
                 android:id="@+id/buttonOtp"/>
 
             <ProgressBar
+                android:backgroundTint="@android:color/transparent"
+                android:background="@drawable/progress_bg"
                 android:visibility="gone"
                 android:id="@+id/progressOtp"
                 android:layout_width="@dimen/_25sdp"

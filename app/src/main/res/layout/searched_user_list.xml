@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/_8sdp">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:background="@drawable/background_image"
+        app:riv_oval="true"
+        android:src="@drawable/ic_user"
+        android:id="@+id/userLists_profile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <View
+        android:layout_height="1dp"
+        android:layout_width="1dp"
+        android:id="@+id/viewSupporter"
+        app:layout_constraintBottom_toBottomOf="@+id/userLists_profile"
+        app:layout_constraintStart_toEndOf="@+id/userLists_profile"
+        app:layout_constraintTop_toTopOf="@+id/userLists_profile"/>
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textName"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13ssp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        app:layout_constraintBottom_toTopOf="@id/viewSupporter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/userLists_profile"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textPhone"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/_10ssp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/userLists_profile"
+        app:layout_constraintTop_toBottomOf="@id/viewSupporter"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
