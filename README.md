@@ -32,7 +32,8 @@ It uses **Firebase Realtime Database** for instant updates and **Firebase Cloud 
 
 ---
 
-## ✨ Features
+<div id="#features">
+  ## ✨ Features
 ✅ **User Authentication** – Secure sign-up and sign-in using Firebase Auth  
 💬 **Instant Messaging** – Messages sync in real time without refresh  
 🔔 **Push Notifications** – Receive chat alerts instantly via FCM  
@@ -41,6 +42,7 @@ It uses **Firebase Realtime Database** for instant updates and **Firebase Cloud 
 🎨 **Clean UI** – XML-based layouts with modern design principles  
 
 ---
+</div>
 
 ## 🛠 Tech Stack
 | Layer          | Technology |
@@ -54,6 +56,8 @@ It uses **Firebase Realtime Database** for instant updates and **Firebase Cloud 
 
 ---
 
+<div id="#screenshots">
+  
 ## 📸 Screenshots
 ### 🚀 Splash Screen
 <p align="center">
@@ -73,6 +77,7 @@ It uses **Firebase Realtime Database** for instant updates and **Firebase Cloud 
 </p>
 
 ---
+</div>
 
 ## ⚙️ Installation & Setup
 1️⃣ **Clone the Repository**
