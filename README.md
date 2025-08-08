@@ -32,7 +32,7 @@ It uses **Firebase Realtime Database** for instant updates and **Firebase Cloud 
 
 ---
 
-<div id="#features">
+<div id="features">
   ## ✨ Features
 ✅ **User Authentication** – Secure sign-up and sign-in using Firebase Auth  
 💬 **Instant Messaging** – Messages sync in real time without refresh  
@@ -56,7 +56,7 @@ It uses **Firebase Realtime Database** for instant updates and **Firebase Cloud 
 
 ---
 
-<div id="#screenshots">
+<div id="screenshots">
   
 ## 📸 Screenshots
 ### 🚀 Splash Screen
