@@ -9,7 +9,6 @@
   <b>Real-time bilateral messaging app built with Java, XML, Firebase & FCM</b><br>
   Instant chat, secure login, and push notifications in one sleek Android app.  
   <br><br>
-  <a href="#demo-video">🎥 Watch Demo</a> •
   <a href="#features">✨ Features</a> •
   <a href="#screenshots">📸 Screenshots</a> •
   <a href="#installation--setup">⚙️ Setup</a>
@@ -78,8 +77,9 @@ It uses **Firebase Realtime Database** for instant updates and **Firebase Cloud 
 
 ---
 </div>
-
-## ⚙️ Installation & Setup
+<div id="installation--setup">
+  ## ⚙️ Installation & Setup
 1️⃣ **Clone the Repository**
 ```bash
 git clone https://github.com/your-username/yo-messenger.git
+</div>
