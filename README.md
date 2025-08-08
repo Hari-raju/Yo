@@ -81,5 +81,5 @@ It uses **Firebase Realtime Database** for instant updates and **Firebase Cloud 
   ## ⚙️ Installation & Setup
 1️⃣ **Clone the Repository**
 ```bash
-git clone https://github.com/your-username/yo-messenger.git
+git clone https://github.com/Hari-raju/Yo.git
 </div>
